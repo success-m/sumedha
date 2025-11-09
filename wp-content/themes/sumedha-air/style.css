@@ -1,0 +1,963 @@
+/*
+Theme Name: Sumedha Air
+Theme URI: https://sumedhaair.com
+Author: Sumedha Air Team
+Author URI: https://sumedhaair.com
+Description: Modern, competitive WordPress theme for Sumedha Air helicopter rescue company in Nepal. Features emergency contact prominence, service showcase, and mobile-first responsive design.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: sumedha-air
+*/
+
+/* ==========================================================================
+   CSS Custom Properties (Color Variables)
+   ========================================================================== */
+
+:root {
+  --brand-green: #90c33e;
+  --dark-charcoal: #2c3e50;
+  --accent-orange: #ff6b35;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --medium-gray: #666666;
+  --light-green: #d4e8b4;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--dark-charcoal);
+  background-color: var(--white);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--brand-green);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-orange);
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--dark-charcoal);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  height: 50px;
+  width: auto;
+}
+
+.site-logo .logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-green);
+  margin-left: 0.5rem;
+}
+
+.main-navigation {
+  display: none;
+}
+
+.main-navigation ul {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.main-navigation a {
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-navigation a:hover {
+  color: var(--brand-green);
+}
+
+.emergency-contact-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emergency-phone {
+  color: var(--accent-orange);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.availability-badge {
+  background-color: var(--brand-green);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  display: none;
+  background-color: var(--dark-charcoal);
+  padding: 1rem;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-menu a {
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1.125rem;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.mobile-menu .emergency-phone {
+  display: block;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--white);
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.hero-headline {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-subheading {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  min-width: 150px;
+  min-height: 44px;
+}
+
+.btn-primary {
+  background-color: var(--brand-green);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: #7ab02e;
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--accent-orange);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #e55a25;
+  color: var(--white);
+}
+
+.hero-phone {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+}
+
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+
+.services-section {
+  padding: 4rem 2rem;
+  background-color: var(--white);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--medium-gray);
+}
+
+.service-block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+}
+
+.service-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.service-content {
+  padding: 2rem 0;
+}
+
+.service-number {
+  display: inline-block;
+  background-color: var(--brand-green);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-size: 1.75rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.service-features {
+  margin-bottom: 1.5rem;
+}
+
+.service-features li {
+  padding: 0.5rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--dark-charcoal);
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--brand-green);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Why Choose Section
+   ========================================================================== */
+
+.why-choose-section {
+  padding: 4rem 2rem;
+  background-color: var(--light-gray);
+}
+
+.trust-points {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trust-point {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trust-point-icon {
+  font-size: 3rem;
+  color: var(--brand-green);
+  margin-bottom: 1rem;
+}
+
+.trust-point h3 {
+  color: var(--dark-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.trust-point p {
+  color: var(--medium-gray);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Stats Bar
+   ========================================================================== */
+
+.stats-section {
+  background-color: var(--dark-charcoal);
+  padding: 3rem 2rem;
+  color: var(--white);
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 1rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--brand-green);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--white);
+}
+
+/* ==========================================================================
+   Emergency Contact Section
+   ========================================================================== */
+
+.emergency-contact-section {
+  padding: 4rem 2rem;
+  background-color: var(--brand-green);
+  color: var(--white);
+  text-align: center;
+}
+
+.emergency-contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.emergency-contact-section .emergency-phone {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  margin: 1rem 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--dark-charcoal);
+  color: var(--white);
+  padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  color: var(--brand-green);
+  margin-bottom: 1rem;
+}
+
+.footer-section p,
+.footer-section a {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+  color: var(--brand-green);
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================================================
+   Page Templates
+   ========================================================================== */
+
+.page-header {
+  background-color: var(--dark-charcoal);
+  color: var(--white);
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* ==========================================================================
+   Services Page
+   ========================================================================== */
+
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.service-item {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.service-item h3 {
+  color: var(--dark-charcoal);
+  margin-bottom: 1rem;
+}
+
+.service-item p {
+  color: var(--medium-gray);
+  margin-bottom: 1rem;
+}
+
+.service-details {
+  margin-top: 1.5rem;
+}
+
+.service-details h4 {
+  color: var(--dark-charcoal);
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Contact Page
+   ========================================================================== */
+
+.emergency-banner {
+  background-color: var(--brand-green);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.emergency-banner a {
+  color: var(--white);
+  font-size: 2rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.contact-form-wrapper {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.contact-info-sidebar {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.contact-info-item {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info-item h4 {
+  color: var(--dark-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-item p,
+.contact-info-item a {
+  color: var(--medium-gray);
+}
+
+.contact-info-item .emergency-phone {
+  color: var(--accent-orange);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Contact Form 7 Styling
+   ========================================================================== */
+
+.wpcf7-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--dark-charcoal);
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form select,
+.wpcf7-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.wpcf7-form input:focus,
+.wpcf7-form select:focus,
+.wpcf7-form textarea:focus {
+  outline: none;
+  border-color: var(--brand-green);
+}
+
+.wpcf7-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.wpcf7-form input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.wpcf7-form .wpcf7-radio {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.wpcf7-form .wpcf7-list-item {
+  margin: 0;
+}
+
+.wpcf7-form .wpcf7-submit {
+  background-color: var(--brand-green);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-height: 44px;
+}
+
+.wpcf7-form .wpcf7-submit:hover {
+  background-color: #7ab02e;
+}
+
+.wpcf7-form .wpcf7-submit:disabled {
+  background-color: var(--medium-gray);
+  cursor: not-allowed;
+}
+
+.wpcf7-response-output {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.wpcf7-mail-sent-ok {
+  background-color: var(--light-green);
+  color: var(--dark-charcoal);
+  border: 1px solid var(--brand-green);
+}
+
+.wpcf7-validation-errors,
+.wpcf7-mail-sent-ng {
+  background-color: #fee;
+  color: #c33;
+  border: 1px solid #fcc;
+}
+
+.wpcf7-not-valid-tip {
+  color: #c33;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* ==========================================================================
+   404 Page
+   ========================================================================== */
+
+.error-404-content {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-404-content h1 {
+  font-size: 6rem;
+  color: var(--brand-green);
+  margin-bottom: 1rem;
+}
+
+.error-404-content h2 {
+  font-size: 2rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 1rem;
+}
+
+.error-404-content p {
+  color: var(--medium-gray);
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Responsive Media Queries (Mobile-First Approach)
+   ========================================================================== */
+
+/* Tablet: 768px and up */
+@media (min-width: 768px) {
+  /* Typography */
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  /* Header */
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-navigation {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none !important;
+  }
+
+  /* Hero */
+  .hero-headline {
+    font-size: 3rem;
+  }
+
+  .hero-subheading {
+    font-size: 1.25rem;
+  }
+
+  .hero-cta {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Services */
+  .service-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .service-block:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .service-image {
+    width: 50%;
+    height: 400px;
+  }
+
+  .service-content {
+    width: 50%;
+    padding: 0;
+  }
+
+  /* Trust points */
+  .trust-points {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Stats */
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Services page */
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contact page */
+  .contact-layout {
+    grid-template-columns: 60% 40%;
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  /* Typography */
+  .hero-headline {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2.625rem;
+  }
+
+  .service-title {
+    font-size: 2rem;
+  }
+
+  /* Hero content */
+  .hero-content {
+    padding: 2rem 4rem;
+  }
+
+  /* Trust points */
+  .trust-points {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Stats */
+  .stats-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
